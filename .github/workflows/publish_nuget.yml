@@ -13,18 +13,13 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.0
+        dotnet-version: 3.1.x
     - name: Install dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Publish Kontore.Dithering
+    - name: Publish Kontore.FireBitmap
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-          PROJECT_FILE_PATH: Dithering/Dithering.csproj
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-    - name: Publish Kontore.Dithering.FireBitmap
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-          PROJECT_FILE_PATH: Dithering/Dithering.FireBitmap.csproj
+          PROJECT_FILE_PATH: FireBitmap/FireBitmap.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
