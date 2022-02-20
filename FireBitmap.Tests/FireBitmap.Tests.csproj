@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Kontore.FireBitmap.Tests</RootNamespace>
+    <AssemblyName>Kontore.FireBitmap.Tests</AssemblyName>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+     <Optimize>true</Optimize>
+	 <GenerateDocumentationFile>true</GenerateDocumentationFile> <!-- This is required for NuGet package documentation -->
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Kontore.Extensions" Version="1.0.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FireBitmap\FireBitmap.csproj" />
+  </ItemGroup>
+
+</Project>
