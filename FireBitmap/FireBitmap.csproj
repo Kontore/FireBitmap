@@ -12,14 +12,15 @@
     <Version>1.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Kontore/FireBitmap</RepositoryUrl>
-    <NeutralLanguage>en-US</NeutralLanguage>
+    <NeutralLanguage>en</NeutralLanguage>
     <Description>A package that allows faster operations of the pixels inside the System.Drawing.Bitmap class.</Description>
     <PackageReleaseNotes></PackageReleaseNotes>
     <Company>Kontore</Company>
     <AssemblyName>Kontore.FireBitmap</AssemblyName>
     <PackageProjectUrl>https://github.com/Kontore/FireBitmap</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/Kontore/About/blob/970bfb08b84d6ecbe6192ea0872ced08673fe071/Images/StralsundCityHall_512x512.jpg</PackageIconUrl>
     <SignAssembly>false</SignAssembly>
+    <PackageIcon>StralsundCityHall_512x512.jpg</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -33,6 +34,13 @@
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\StralsundCityHall_512x512.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
