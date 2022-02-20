@@ -6,6 +6,8 @@
     <IsPackable>false</IsPackable>
     <RootNamespace>Kontore.FireBitmap.Tests</RootNamespace>
     <AssemblyName>Kontore.FireBitmap.Tests</AssemblyName>
+    <Authors>tigerros</Authors>
+    <Company>Kontore</Company>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
