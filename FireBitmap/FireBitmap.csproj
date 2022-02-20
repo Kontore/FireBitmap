@@ -18,8 +18,7 @@
     <Company>Kontore</Company>
     <AssemblyName>Kontore.FireBitmapFireBitmap</AssemblyName>
     <PackageProjectUrl>https://github.com/Kontore/FireBitmap</PackageProjectUrl>
-    <PackageIcon>StralsundCityHall_512x512.jpg</PackageIcon>
-    <PackageIconUrl />
+    <PackageIconUrl>https://github.com/Kontore/About/blob/970bfb08b84d6ecbe6192ea0872ced08673fe071/Images/StralsundCityHall_512x512.jpg</PackageIconUrl>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
@@ -34,13 +33,6 @@
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\About\Images\StralsundCityHall_512x512.jpg">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>
