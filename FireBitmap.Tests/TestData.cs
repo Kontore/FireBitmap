@@ -10,12 +10,19 @@ namespace Kontore.FireBitmap.Tests {
 		/// The current project folder in a local environment.
 		/// <c>".."</c> actually refers to the <c>bin</c> folder, since that's where the executables are saved.
 		/// </summary>
-		public const string PROJECT_FOLDER = @"..\..\..";
+		public const string LOCAL_PROJECT_FOLDER = @"..\..\..";
+
+		/// <summary>
+		/// The GitHub workspace environment variable.
+		/// If it's null, the <see cref="LOCAL_PROJECT_FOLDER"/> will be used.
+		/// </summary>
+		public static string GITHUB_WORKSPACE = Environment.GetEnvironmentVariable("GITHUB_WORKSPACE");
 
 		/// <summary>
 		/// The current project folder in the GitHub Actions environment.
+		/// If <see cref="GITHUB_WORKSPACE"/> null, the <see cref="LOCAL_PROJECT_FOLDER"/> will be used.
 		/// </summary>
-		public static string GITHUB_ACTIONS_PROJECT_FOLDER = $@"{Environment.GetEnvironmentVariable("GITHUB_WORKSPACE")}/FireBitmap.Tests";
+		public static string GITHUB_ACTIONS_PROJECT_FOLDER = Path.Combine(GITHUB_WORKSPACE ?? "", "FireBitmap.Tests");
 		
 		/// <summary>
 		/// The bitmap objects created from the images placed in the <c>PROJECT_FOLDER\TestBitmaps</c> folder.
@@ -26,12 +33,22 @@ namespace Kontore.FireBitmap.Tests {
 		/// Fills all of the <see cref="TestData"/> fields and properties with values.
 		/// </summary>
 		static TestData() {
-			var bitmapPaths = Directory.GetFiles($@"{GITHUB_ACTIONS_PROJECT_FOLDER}/TestBitmaps", "*.png");
+			if (GITHUB_WORKSPACE != null) {
+				var bitmapPaths = Directory.GetFiles(Path.Combine(GITHUB_ACTIONS_PROJECT_FOLDER, "TestBitmaps"), "*.png");
 
-			foreach (var bitmapPath in bitmapPaths) {
-				var testCase = new TestCaseData(new Bitmap(Image.FromFile(bitmapPath)));
-				testCase.SetArgDisplayNames(new FileInfo(bitmapPath).Length / 1024 + "KB");
-				TestBitmaps.Add(testCase);
+				foreach (var bitmapPath in bitmapPaths) {
+					var testCase = new TestCaseData(new Bitmap(Image.FromFile(bitmapPath)));
+					testCase.SetArgDisplayNames(new FileInfo(bitmapPath).Length / 1024 + "KB");
+					TestBitmaps.Add(testCase);
+				}
+			} else {
+				var bitmapPaths = Directory.GetFiles(Path.Combine(LOCAL_PROJECT_FOLDER, "TestBitmaps"), "*.png");
+
+				foreach (var bitmapPath in bitmapPaths) {
+					var testCase = new TestCaseData(new Bitmap(Image.FromFile(bitmapPath)));
+					testCase.SetArgDisplayNames(new FileInfo(bitmapPath).Length / 1024 + "KB");
+					TestBitmaps.Add(testCase);
+				}
 			}
 		}
 	}

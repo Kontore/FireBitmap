@@ -47,7 +47,7 @@ namespace Kontore.FireBitmap.Tests {
 		/// Tests whether the <see cref="FireBitmap.SetPixel(int, int, Color)"/> method is faster than the
 		/// <see cref="Bitmap.SetPixel(int, int, Color)"/> method.
 		/// </summary>
-		//[Test]
+		[Test]
 		public void IsSetPixelFaster() {
 			var fastBitmap = new FireBitmapFaster(SourceBitmap.Width, SourceBitmap.Height, SourceBitmap.PixelFormat);
 			var normalBitmap = new Bitmap(SourceBitmap.Width, SourceBitmap.Height);

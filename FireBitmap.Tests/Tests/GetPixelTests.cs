@@ -47,7 +47,7 @@ namespace Kontore.FireBitmap.Tests {
 		/// Tests whether the<see cref="FireBitmap.GetPixel(int, int)"/> method is faster than the
 		/// <see cref = "Bitmap.GetPixel(int, int)"/> method.
 		/// </summary>
-		//[Test]
+		[Test]
 		public void IsGetPixelFaster() {
 			var fastBitmap = new FireBitmap(SourceBitmap.Width, SourceBitmap.Height, SourceBitmap.PixelFormat);
 			long fastTicks = 0;
