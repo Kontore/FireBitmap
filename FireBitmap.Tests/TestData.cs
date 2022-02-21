@@ -15,7 +15,7 @@ namespace Kontore.FireBitmap.Tests {
 		/// <summary>
 		/// The current project folder in the GitHub Actions environment.
 		/// </summary>
-		public static string GITHUB_ACTIONS_PROJECT_FOLDER = $@"{Environment.GetEnvironmentVariable("GITHUB_WORKSPACE")}/FireBitmap/FireBitmap.Tests";
+		public static string GITHUB_ACTIONS_PROJECT_FOLDER = $@"{Environment.GetEnvironmentVariable("GITHUB_WORKSPACE")}/FireBitmap.Tests";
 		
 		/// <summary>
 		/// The bitmap objects created from the images placed in the <c>PROJECT_FOLDER\TestBitmaps</c> folder.
