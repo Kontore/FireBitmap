@@ -14,7 +14,7 @@ namespace Kontore.FireBitmap.Tests {
 		/// <summary>
 		/// The current project folder in the GitHub Actions environment.
 		/// </summary>
-		public const string GITHUB_ACTIONS_PROJECT_FOLDER = @"$GITHUB_WORKSPACE/FireBitmap/FireBitmap.Tests";
+		public const string GITHUB_ACTIONS_PROJECT_FOLDER = @"${{env.GITHUB_WORKSPACE}}/FireBitmap/FireBitmap.Tests";
 		
 		/// <summary>
 		/// The bitmap objects created from the images placed in the <c>PROJECT_FOLDER\TestBitmaps</c> folder.
@@ -25,7 +25,7 @@ namespace Kontore.FireBitmap.Tests {
 		/// Fills all of the <see cref="TestData"/> fields and properties with values.
 		/// </summary>
 		static TestData() {
-			var bitmapPaths = Directory.GetFiles($@"${GITHUB_ACTIONS_PROJECT_FOLDER}\TestBitmaps", "*.png");
+			var bitmapPaths = Directory.GetFiles($@"{GITHUB_ACTIONS_PROJECT_FOLDER}\TestBitmaps", "*.png");
 
 			foreach (var bitmapPath in bitmapPaths) {
 				var testCase = new TestCaseData(new Bitmap(Image.FromFile(bitmapPath)));
