@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: DLLs
-        path: "**/bin/Release/**/"
+        path: "FireBitmap.Tests/"
         
   Test:
     needs: Build
@@ -33,4 +33,4 @@ jobs:
       with:
         name: DLLs
     - name: Test
-      run: dotnet test "**/*Tests.dll" --no-build --verbosity normal --configuration Release
+      run: dotnet test "FireBitmap.Tests/FireBitmap.Tests.csproj" --no-build --verbosity normal --configuration Release
