@@ -16,6 +16,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
+    - name: Upload DLLs artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: DLLs
+        path: "**/bin/Release/**/*.dll"
         
   Test:
     needs: Build
@@ -23,5 +28,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    - name: Download Projects artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: DLLs
     - name: Test
-      run: dotnet test --no-build --verbosity normal --configuration Release
+      run: dotnet test "**/*Tests.dll" --no-build --verbosity normal --configuration Release
