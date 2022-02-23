@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: DLLs
-        path: "**/bin/Release/**/*.dll"
+        path: "**/bin/Release/**/"
         
   Test:
     needs: Build
