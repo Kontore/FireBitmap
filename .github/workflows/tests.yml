@@ -16,11 +16,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Upload Projects artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: Projects
-        path: "**/*.csproj"
         
   Test:
     needs: Build
@@ -28,9 +23,5 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Download Projects artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: Projects
     - name: Test
-      run: dotnet test "**/*.csproj" --no-build --verbosity normal --configuration Release
+      run: dotnet test --no-build --verbosity normal --configuration Release
