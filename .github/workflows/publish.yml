@@ -3,10 +3,9 @@ name: Publish
 on: [push, pull_request]
 
 jobs:
-  Build-and-Publish:
-    name: Build and Publish
+  Build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -17,9 +16,36 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Generate Packages
-      run: dotnet pack -c Release -o out
+    - name: Upload Packages artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Packages
+        path: "**/*.nupkg"
+        
+  Publish-NuGet:
+    name: Publish NuGet
+    needs: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download Packages from artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: Packages
     - name: Publish to NuGet
-      run: dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate --source https://api.nuget.org/v3/index.json
+      
+  Publish-GitHub:
+    name: Publish GitHub
+    needs: [Build, Publish-NuGet]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download Packages artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: Packages
     - name: Publish to GitHub
       run: dotnet nuget push "**/*.nupkg" --api-key ${{secrets.GH_PACKAGE_KEY}} --source https://nuget.pkg.github.com/Kontore/index.json --skip-duplicate
