@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Projects
-        path: "**/*.csproj"
+        path: "**"
         
   Test:
     needs: Build
@@ -33,4 +33,4 @@ jobs:
       with:
         name: Projects
     - name: Test
-      run: dotnet test "**/*.csproj" --no-build --verbosity normal --configuration Release
+      run: dotnet test "**" --no-build --verbosity normal --configuration Release
