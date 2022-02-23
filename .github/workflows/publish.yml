@@ -16,7 +16,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Upload Packages artifact
+    - name: Upload package artifact
       uses: actions/upload-artifact@v2
       with:
         name: Packages
@@ -29,7 +29,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Download Packages from artifact
+    - name: Download packages from artifact
       uses: actions/download-artifact@v2
       with:
         name: Packages
@@ -43,7 +43,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Download Packages artifact
+    - name: Download packages from artifact
       uses: actions/download-artifact@v2
       with:
         name: Packages

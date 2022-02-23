@@ -3,7 +3,8 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-  Build:
+  Build-and-Test:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -16,21 +17,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Upload DLLs artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: DLLs
-        path: "FireBitmap.Tests/"
-        
-  Test:
-    needs: Build
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-    - name: Download Projects artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: DLLs
     - name: Test
       run: dotnet test --no-build --verbosity normal --configuration Release
