@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBitmap", "FireBitmap\FireBitmap.csproj", "{9E119F85-851E-4ACB-9CFF-5E54599F91AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dev", "dev\dev.csproj", "{9E119F85-851E-4ACB-9CFF-5E54599F91AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBitmap.Tests", "FireBitmap.Tests\FireBitmap.Tests.csproj", "{BF57AB9A-09CD-465E-B145-659F77A50CC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dev.Tests", "dev.Tests\dev.Tests.csproj", "{BF57AB9A-09CD-465E-B145-659F77A50CC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

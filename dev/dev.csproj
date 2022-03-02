@@ -19,7 +19,7 @@
     <AssemblyName>Kontore.FireBitmap</AssemblyName>
     <PackageProjectUrl>https://github.com/Kontore/FireBitmap</PackageProjectUrl>
     <SignAssembly>false</SignAssembly>
-    <PackageIcon>StralsundCityHall_512x512.jpg</PackageIcon>
+    <PackageIcon>Icon.jpg</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
 
@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\StralsundCityHall_512x512.jpg">
+    <None Include="..\Icon.jpg">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
