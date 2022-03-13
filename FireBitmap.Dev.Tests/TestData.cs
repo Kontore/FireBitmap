@@ -43,7 +43,7 @@ namespace Kontore.FireBitmap.Tests {
 				? Path.Combine(GITHUB_ACTIONS_PROJECT_FOLDER, "TestBitmaps")
 				: Path.Combine(LOCAL_PROJECT_FOLDER, "TestBitmaps");
 
-			var bitmapPaths = Directory.GetFiles(testBitmapsFolder, "*.*")
+			var bitmapPaths = Directory.GetFiles(testBitmapsFolder)
 				.Where(file => ImageExtensions.Any(ex => file.EndsWith(ex, StringComparison.OrdinalIgnoreCase)));
 
 			foreach (var bitmapPath in bitmapPaths) {
